@@ -1,0 +1,83 @@
+Here are key point teaching notes extracted directly from your course materials to help guide your lessons:
+
+1. Object-Oriented Programming (OOP) & Classes Basics
+
+OOP Definition: Python uses Object-Oriented Programming to structure code with 
+classes and objects for better organization and reusability.  
+
+DRY Principle: "Don't Repeat Yourself"—move repeated code into functions or classes to 
+avoid writing duplicate code.  
+
+Class vs. Object: 
+A class acts as a "blueprint" or object constructor, whereas an object is an instance built from 
+that class (e.g., Class: Car, Object: Toyota).  
+
+Keywords & Management:
+Use the class keyword to define a class.  
+
+Use the pass statement to avoid errors in empty class definitions.  
+
+Use the del keyword to delete object properties (e.g., del p1.age) or entire objects (e.g., del p1).  
+
+
+2. Methods & Parameters
+
+__init__() Method: 
+Executed automatically whenever a class creates a new object; used to initialize object properties.  
+
+__str__() Method: Controls the string representation returned when an object is printed or converted to a string.  
+
+self Parameter: A reference to the current instance of the class used to access class variables. 
+It must be the first parameter of class methods, though it can technically be named differently 
+(e.g., mysillyobject).  
+
+
+3. Inheritance
+Allows a child (derived) class to inherit methods and properties from a parent (base) class 
+(e.g., class Student(Person):).  
+
+Method Overriding: Adding an __init__() function or method to a child class overrides the parent class's version.  
+
+super() Function: Allows the child class to call parent methods/constructors automatically without 
+explicitly naming the parent class (e.g., super().__init__(fname, lname)).  
+
+
+4. Iterators & The Iterator Protocol
+
+Protocol Methods: Custom iterators must implement __iter__() (which initializes and returns the 
+iterator object itself) and __next__() (which returns the next sequence item).  
+
+Iterable vs. Iterator: Lists, tuples, dictionaries, sets, and strings are iterables that return an iterator 
+using the iter() method.  
+
+StopIteration Exception: Raised inside the __next__() method to prevent infinite loops when the sequence 
+finishes. for loops handle StopIteration automatically.  
+
+
+5. Polymorphism
+Concept: Means "many forms"—the ability to execute methods/functions with the same name across different 
+objects or classes.  
+
+Function Polymorphism: Built-in functions like len() execute differently based on object type 
+(returns character count for strings, item count for lists/tuples, key/value pair count for dictionaries).  
+
+Class Polymorphism: Different classes (or child classes overriding a parent method) can implement the same 
+method name (e.g., Car, Boat, and Plane all responding to .move()), allowing uniform iteration.  
+
+Dynamic Typing: Methods sharing the same name across different objects do not need to return the exact 
+same data type.  
+
+
+6. Variable Scope
+
+Local Scope: Variables created inside a function are accessible only within that 
+function or nested functions inside it.  
+
+Global Scope: Variables defined in the main body are accessible everywhere. Re-assigning a global variable 
+inside a function creates a separate local variable unless declared otherwise.  
+
+global Keyword: Used inside a local scope to declare or modify a global variable.  
+
+nonlocal Keyword: Used within nested functions to modify variables belonging to the enclosing (outer) function.
+
+  
