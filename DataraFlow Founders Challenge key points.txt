@@ -1,0 +1,106 @@
+Key Points
+
+The Challenge:
+The DataraFlow Founder Challenge 2026 (The Niagara Succession Signal) is a prize-backed research 
+competition running alongside Cohort 2 of the DataraFlow Data Science Mentorship Programme.
+
+
+Core Problem:
+You must analyze small-business succession risk in Ontario's Niagara Region (Canada) to identify businesses 
+at risk of closure due to retiring owners without succession plans, estimate exposed jobs, map risks by sector 
+and municipality, and propose remediation strategies.
+
+
+Prize & Timeline:
+₦500,000 awarded to the winning individual or team. The challenge runs from Month 1 through Month 5 of the internship,
+with final submissions due at the start of Month 6.
+
+
+Eligibility & Teams:
+Open to enrolled DataraFlow Cohort 2 interns, competing individually or in teams of up to 4 members.
+
+
+Regulatory Guardrail:
+Your work must strictly remain aggregated economic research and generic frameworks; you are prohibited 
+from providing financial, tax, or sale advice to specific, identifiable businesses.
+
+
+Key Evaluation Criteria:
+Submissions are judged on Analytical Rigour & Method (25%):
+
+1. What Is Expected: The panel looks for a sound analytics, correct handling and cleaning of datasets, 
+defensible modeling choices, and strong domain alignment with economic research standards.
+
+2. Reproducibility & Statistical Reporting (20%): 
+What Is Expected: An outsider who is not part of the team should be able to clone your repository, run your scripts, 
+and obtain the exact same output, metrics, and dataset without manual interventions. It also requires honest 
+reporting of model uncertainty and statistical assumptions.
+ 
+3. Asset Completeness (15%):
+What Is Expected: Every single required deliverable outlined in the challenge guidelines must be present, 
+and well-aligned with the rest of your package. Missing core deliverables will directly penalize this score.
+
+4. Insight & Real-World Usefulness (15%):
+What Is Expected: Findings and recommendations must provide actionable value to actual regional decision-makers 
+(such as municipal economic development departments, chambers of commerce, and buyers) rather than remaining purely 
+theoretical.
+
+5. Visual Communication (15%), and Innovation (10%):
+What Is Expected: Clear, publication-ready visual assets that translate complex analytical findings into accessible 
+insights for non-technical stakeholders and executive readers.
+
+
+
+Required Submission Deliverables
+
+To enter a complete submission package at the start of Month 6, you must submit the following items:
+
+Research Report:
+The central structured report detailing your methodology, findings, and evidence-based recommendations (PDF format).
+
+
+Aggregated Dataset:
+Cleaned, documented dataset merging core open sources (Canadian Business Counts, LEAP Business Dynamics, NEI data, 
+Census profiles) at the sector and municipal level (CSV or Parquet format).
+
+
+Reproducibility & Code Bundle:
+A Git repository link or zipped bundle containing scripts (Python/R), Jupyter/Quarto notebooks, fixed random seeds, 
+environment setup, and a README for complete replication.
+
+
+Infographics & Standalone Visual Assets:
+Non-technical graphics summarizing headline findings (risk maps, exposed job counts, municipal breakdowns).
+
+
+Graphs & Exploratory Visuals:
+Analytical charts backing up claims, including data distributions, trend correlations, and model diagnostics.
+
+
+Predictive Forecasting Model:
+Fully documented model files predicting business closures or at-risk counts with validated metrics, 
+baseline comparisons, and clear uncertainty estimates.
+
+
+Generic Succession / Acquisition Playbook:
+A transferable guide mapping out transition sequences, buyer signals, and failure points for policymakers or 
+prospective buyers.
+
+
+Local-Economy Impact Analysis:
+Aggregate breakdown evaluating sectoral concentration, job exposure, municipal vulnerabilities, and economic 
+ripple effects.
+
+
+Remediation Report:
+A decision-ready briefing featuring targeted action items split separately for government bodies and private-sector 
+actors.
+
+
+Originality Declaration:
+A brief signed statement confirming original work, adherence to data ethics standards, and proper source licensing.
+
+
+Optional Extension Assets (Bonus/Innovation):
+Any attempted extras such as interactive dashboards, succession-readiness scoring indices, synthetic 
+buyer-matching models, policy briefs, or African regional comparative case studies.
