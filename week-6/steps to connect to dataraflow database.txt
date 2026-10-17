@@ -1,0 +1,157 @@
+Connecting To SQL Database steps
+
+1. Create a .env file inside your dataraflow folder and paste
+
+SQL_SERVER_NAME=df-cohort2.database.windows.net
+SQL_SERVER_DATABASE=assessmentDB
+SQL_READONLY_USERNAME=intern_readonly
+SQL_READONLY_PASSWORD=PwZbz7iOS0lWeacFBaxbi2
+
+2. create another file test_connection.py file and paste
+
+import os
+import os
+from dotenv import load_dotenv
+
+# Load variables from the .env file
+load_dotenv()
+
+server = os.getenv("SQL_SERVER_NAME")
+database = os.getenv("SQL_SERVER_DATABASE")
+username = os.getenv("SQL_READONLY_USERNAME")
+password = os.getenv("SQL_READONLY_PASSWORD")
+
+print(f"Connecting to database {database} on server {server}...")
+
+3. It will say no module 'dotenv'. Then paste this in the terminal to install
+
+pip install python-dotenv
+python test_connection.py
+
+
+4. Go to your week6 folder, create a folder called db to help you query the database
+5. create a file there called dataraflow_db.py
+6. paste this code
+
+"""Read-only database access for DataFlow interns."""
+
+import os
+from urllib.parse import quote_plus
+import pandas as pd
+import pymssql
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+
+load_dotenv()
+
+_engine = None
+
+def get_engine():
+    """Return a cached read-only SQLAlchemy engine for the cohort database."""
+    global _engine
+    if _engine is None:
+        user = os.environ["SQL_READONLY_USERNAME"]
+        pwd = quote_plus(os.environ["SQL_READONLY_PASSWORD"])
+        host = os.environ["SQL_SERVER_NAME"]
+        db = os.environ["SQL_SERVER_DATABASE"]
+        _engine = create_engine(
+            f"mssql+pymssql://{user}:{pwd}@{host}:1433/{db}?tds_version=7.4",
+            connect_args={"login_timeout": 15, "timeout": 30},
+        )
+    return _engine
+
+def get_connection():
+    """Open a raw read-only pymssql connection (for manual cursor use)."""
+    return pymssql.connect(
+        server=os.environ["SQL_SERVER_NAME"],
+        user=os.environ["SQL_READONLY_USERNAME"],
+        password=os.environ["SQL_READONLY_PASSWORD"],
+        database=os.environ["SQL_SERVER_DATABASE"],
+        port=1433,
+        tds_version="7.4",
+        login_timeout=15,
+        timeout=30,
+    )
+
+def run_query(sql: str) -> pd.DataFrame:
+    """Run a SELECT query and return the result as a pandas DataFrame."""
+    return pd.read_sql(sql, get_engine())
+
+7. now create a run_assessment.py file inside db to run the query eg
+
+import sys, pathlib
+_p = pathlib.Path.cwd()
+while _p != _p.parent and not (_p / "db" / "dataraflow_db.py").exists():
+    _p = _p.parent
+sys.path.insert(0, str(_p))
+from db.dataraflow_db import run_query
+
+df = run_query("SELECT * FROM week06.london_2014")
+
+8. Now create a file inside week6 called analysis.py
+
+import pathlib
+
+# Automatically find the root DataraFlow folder and add it to Python's path
+_p = pathlib.Path.cwd()
+while _p != _p.parent and not (_p / "db" / "dataraflow_db.py").exists():
+    _p = _p.parent
+sys.path.insert(0, str(_p))
+
+from db.dataraflow_db import run_query
+import pandas as pd
+
+9. pull a single dataset, Combine the six cities (merge with UNION ALL), 
+Aggregate, Save to CSV (for your Take Home), and WHO population & TB data. 
+So you should have something like this:
+
+import sys
+import pathlib
+
+# 1. Pathfinder to find the root db module from subfolders (like week-6)
+_p = pathlib.Path.cwd()
+while _p != _p.parent and not (_p / "db" / "dataraflow_db.py").exists():
+    _p = _p.parent
+sys.path.insert(0, str(_p))
+
+from db.dataraflow_db import run_query
+import pandas as pd
+
+print("--- 1. Testing Single Dataset (London) ---")
+london = run_query("SELECT TOP 3 * FROM week06.london_2014")
+print(london.head(3))
+print("London columns:", london.columns.tolist())
+
+print("\n--- 2. Inspecting All City Table Columns ---")
+cities_list = [
+    "week06.london_2014", 
+    "week06.beijing_pek_2014", 
+    "week06.brasilia_bsb_2014", 
+    "week06.capetown_cpt_2014", 
+    "week06.delhi_del_2014", 
+    "week06.moscow_svo_2014"
+]
+
+for table in cities_list:
+    df_sample = run_query(f"SELECT TOP 1 * FROM {table}")
+    print(f"Table {table} columns -> Date col found: {[c for c in df_sample.columns if 'date' in c.lower() or 'gmt' in c.lower()]}")
+
+print("\n--- 3. Combining All Six Cities via UNION ALL ---")
+cities = run_query("""
+    SELECT 'London'    AS city, GMT AS [Date], [Mean TemperatureC] FROM week06.london_2014
+    UNION ALL SELECT 'Beijing',  Date, [Mean TemperatureC] FROM week06.beijing_pek_2014
+    UNION ALL SELECT 'Brasilia', Date, [Mean TemperatureC] FROM week06.brasilia_bsb_2014
+    UNION ALL SELECT 'CapeTown', Date, [Mean TemperatureC] FROM week06.capetown_cpt_2014
+    UNION ALL SELECT 'Delhi',    Date, [Mean TemperatureC] FROM week06.delhi_del_2014
+    UNION ALL SELECT 'Moscow',   Date, [Mean TemperatureC] FROM week06.moscow_svo_2014
+""")
+print("Combined shape:", cities.shape)
+
+print("\n--- 4. Saving to CSV ---")
+cities.to_csv("cities_mean_temp.csv", index=False)
+print("Saved cities_mean_temp.csv successfully!")
+
+print("\n--- 5. Pulling WHO Data ---")
+who_all = run_query("SELECT * FROM week06.who_pop_tb_all")
+print("WHO All Countries Shape:", who_all.shape)
+print(who_all.head(3))
