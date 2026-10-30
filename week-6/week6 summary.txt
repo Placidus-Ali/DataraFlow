@@ -1,0 +1,32 @@
+week 6 summary
+
+SQL, Numpy and Pandas
+
+SQl
+1. Connecting to database
+2. Create database
+3. Query database
+4. Setup & ground rules	Connecting, Exploring an unfamiliar database, 
+Refresher: the core SELECT, Filtering like a pro, 
+Types & conversion & built-in functions, CASE expressions, 
+Aggregation in depth, Joins, Set operators, Subqueries, 
+Common Table Expressions (CTEs), Window functions, Reshaping,
+SQL + Python like a professional, Capstone project & cheat sheet
+
+NumPy
+1. Intro to Numpy
+2. How to install Numpy
+3. Numpy arrays - creating and accessing all the ndarrys
+4. Numpy array shape
+5. Splitting arrays, searching and sorting
+6. Indexing and slicing
+7. Numpy Arithemetic Operations -Addition, Substraction, Multiplication 
+and Division
+
+Pandas
+1. Intro to Pandas
+2. How to install 
+3. Load dataset
+4. Selecting columns
+5. Sorting columns
+6. Dataset inspection

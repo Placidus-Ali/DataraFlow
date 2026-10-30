@@ -1,0 +1,5 @@
+Week 7 Summary
+
+SQL 
+1. Still connecting to the database
+2. 
