@@ -1,0 +1,147 @@
+Week 11 Summary
+
+1. Module Overview & Fundamentals (`00 · Start Here`)
+
+What it is:
+An introduction to Data Structures & Algorithms (DSA), setting up the 16-lesson roadmap, the `dsa_kit` visualization tools, and the 
+problem-solving framework (**UMPIRE**).
+
+Why it matters:
+Establishes how choosing the right structure prevents code from scaling poorly when data sizes grow from thousands to millions of rows.
+
+Common Use Cases: 
+Setting up project workflows, benchmarking code efficiency, structured technical interview preparation.
+
+
+2. Algorithms & Big-O Notation (`01 · Algorithms & Big-O`)
+
+What it is:
+The mathematical language used to measure and predict code execution time and memory consumption as input size ($n$) grows.
+
+Why it matters:
+Allows developers to identify hidden performance bottlenecks (like $O(n^2)$ nested loops) before deploying code to production.
+
+Common Use Cases:
+Evaluating algorithm efficiency, estimating pipeline runtimes on large datasets, performance optimization in system architecture.
+
+
+3. Arrays, Strings & Two Pointers (`02 · Arrays, Strings & Two Pointers`)
+
+What it is:
+A deep dive into dynamic array mechanics, string immutability, memory layouts, and algorithmic techniques (Two Pointers, Sliding Window, Prefix Sums).
+
+Why it matters:
+Avoids hidden $O(n)$ costs (like `list.insert(0)` or string concatenation in loops) and converts nested loops into linear $O(n)$ algorithms.
+
+Common Use Cases:
+In-place array manipulation, string/palindrome verification, rolling metrics (7-day moving averages), rapid range-sum calculations.
+
+
+4. Hash Maps & Sets (`03 · Hash Maps & Sets`)
+
+What it is:
+Explores internal key-value lookup engines using hash functions, handling collisions (chaining vs. open addressing), and load factors.
+
+Why it matters:
+Provides average $O(1)$ constant-time operations for lookups, insertions, and deletions, replacing slow $O(n)$ linear scans.
+
+Common Use Cases:
+Instant record lookups, duplicate detection, frequency counting, fast table joins, and `Two-Sum` style complement matching.
+
+
+5. Linked Lists (`04 · Linked Lists`)
+
+What it is:
+Data organized via pointers connecting separate memory nodes (singly, doubly, and circular variants) rather than contiguous memory slots.
+
+Why it matters:
+Allows $O(1)$ insertions and deletions at arbitrary positions once a pointer reference is held, without memory shifting.
+
+Common Use Cases:
+Implementing LRU (Least Recently Used) caches, undo/redo buffers, navigation history (browser back/forward), queue structures.
+
+
+6. Stacks & Queues (`05 · Stacks & Queues`)
+
+What it is:
+Restricted linear data structures following strict access rules: **LIFO** (Last-In, First-Out for Stacks) and **FIFO** (First-In, First-Out for Queues).
+
+Why it matters:
+Constrains operations to guarantee clean, $O(1)$ state management without element shifting overhead.
+
+Common Use Cases:
+Stack: Syntax/bracket checking, function call stacks, mathematical expression evaluation, monotonic trend tracking.
+Queue: Job scheduling, web server request processing, async messaging, Breadth-First Search (BFS).
+
+
+
+7. Recursion & Divide and Conquer (`06 · Recursion & Divide & Conquer`)
+
+What it is:
+Breaking complex problems down by having functions call themselves on smaller inputs until reaching a base case, using the call stack.
+
+Why it matters:
+Simplifies complex hierarchical and multi-step algorithms into clean, inductive logic.
+
+Common Use Cases:
+Navigating nested JSON/directory trees, fast exponentiation ($O(\log n)$ power calculation), Merge Sort, memoization (Dynamic Programming base).
+
+
+8. Searching & Binary Search (`07 · Searching & Binary Search`)
+
+What it is:
+A logarithmic search algorithm ($O(\log n)$) that repeatedly halves a sorted search space to find a target value or boundary.
+
+Why it matters:
+Reduces search steps on massive datasets dramatically (e.g., searching 1,000,000 items takes ~20 steps instead of 1,000,000).
+
+Common Use Cases:
+Searching sorted database records, boundary/band lookups (`bisect`), finding optimal parameters ("binary search on the answer space").
+
+
+9. Sorting Algorithms (`08 · Sorting Algorithms`)
+
+What it is:
+Methods for arranging data in specific orders, covering comparison-based algorithms (Bubble, Insertion, Quick, Merge, Timsort) and non-comparison algorithms (Counting, Radix).
+
+Why it matters:
+Sorting optimizes downstream searching, matching, and grouping tasks.
+
+Common Use Cases:
+Ordering search results, preprocessing data for binary search/two pointers, rank-based reporting.
+
+
+10. Trees & Heaps (`09–10 · Hierarchies & Priority Queues`)
+
+What it is:
+Hierarchical structures (Binary Search Trees, Tries) and priority-based complete binary trees (Min/Max Heaps).
+
+Why it matters:
+Maintains dynamic sorted orders and rapid retrieval of extreme values without sorting the entire dataset repeatedly.
+
+Common Use Cases:
+Top-$k$ item tracking, running median calculations, autocomplete systems (Tries), priority task scheduling.
+
+
+11. Graphs & Network Algorithms (`11–12 · Graphs & Shortest Paths`)
+
+What it is:
+Modeling interconnected structures made of nodes (vertices) and connections (edges), evaluated using traversal (BFS, DFS) and pathfinding (Dijkstra).
+
+Why it matters:
+Handles real-world relational networks, flow systems, and spatial/topological dependencies.
+
+Common Use Cases:
+Social network connections, recommendation systems, routing/GPS navigation, task dependency resolving (Topological Sort).
+
+
+12. Dynamic Programming & Advanced Patterns (`13–15 · DP, Greedy & Capstone`)
+
+What it is:
+Algorithmic strategies including Dynamic Programming (storing subproblem solutions to avoid redundant work), Greedy choices, and Backtracking.
+
+Why it matters:
+Converts exponential-time ($O(2^n)$) combinatorial problems into polynomial-time ($O(n \cdot k)$) solvable tasks.
+
+Common Use Cases:
+Resource allocation (Knapsack problem), text comparison/diffing (Edit Distance, LCS), route optimization, feature engineering pipelines.
